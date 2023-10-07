@@ -8,14 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var appmodel: AppModel = AppModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+        ZStack{
+            Color(.black)
+                .ignoresSafeArea()
+            
+            ScrollView(.vertical, showsIndicators: false) {
+                
+                VStack(alignment: .leading){
+                    
+                    Hearder(appmodel: appmodel)
+                    
+                    SkillsView(skils: appmodel.Portfolio.skill, width: UIScreen.main.bounds.width - 48)
+                        .padding(.top, 32)
+                    
+                    ExperiencesView(experiences: appmodel.Portfolio.experience)
+                        .padding(.top, 42)
+                    
+                }.padding(24)
+            }
+            
         }
-        .padding()
     }
 }
 

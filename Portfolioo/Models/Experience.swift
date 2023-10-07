@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+
+
+struct Experience: Identifiable {
+    
+    let id: Int
+    let curso: String
+    let role: String
+    let duration: String
+}
